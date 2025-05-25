@@ -25,7 +25,7 @@ published: true
 {% assign recent = site.data.gallery | sort: "date" | reverse | slice: 0, 6 %}
 {% for item in recent %}
 <img src="{{ item.url }}" alt="{{ item.title }}" loading="lazy" decoding="async" class="image">
-{% endfor %
+{% endfor %}
 </div>
 </div>
 </section>
