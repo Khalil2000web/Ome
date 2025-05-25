@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Beach Sunset",
+    "url": "https://your-r2-url.com/images/beach.jpg",
+    "date": "2025-05-25"
+  },
+  {
+    "title": "Mountain View",
+    "url": "https://your-r2-url.com/images/mountain.jpg",
+    "date": "2025-05-24"
+  },
+  {
+    "title": "City Lights",
+    "url": "https://your-r2-url.com/images/city.jpg",
+    "date": "2025-05-23"
+  }
+
+  // Add more image objects like this
+]
