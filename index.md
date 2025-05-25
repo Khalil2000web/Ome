@@ -4,7 +4,6 @@ title: Ome Art Heal
 author: "Ome"
 published: true
 ---
-
 <header>
 <div class="container">
 <h1>Ome Art Heal</h1>
