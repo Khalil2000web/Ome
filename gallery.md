@@ -8,7 +8,7 @@ last_modified_at: 2025-05-25 10:30:00
 published: true
 ---
 
-<section class="gallery">
+<section class="gallery" style="padding-top:30px;">
 <div class="container">
 <h2>Gallery</h2>
 <div class="grid">
