@@ -39,3 +39,4 @@ published: true
 </div>
 </div>
 </section>
+<div class="cta-for-gallery"><a href="/gallery" rel="noopener noreferrer">view more</a></div>
