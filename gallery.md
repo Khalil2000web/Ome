@@ -7,7 +7,7 @@ date: 2024-05-25 10:00:00
 last_modified_at: 2025-05-25 10:30:00
 published: true
 ---
-
+<div id="imageModal" class="modal" tabindex="-1" role="dialog" aria-modal="true" ><button aria-label="Close modal" title="Close" type="button" class="close"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path stroke="white" strok-width="2" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg></button><img class="modal-content" id="modalImg"></div>
 <section class="gallery" style="padding-top:30px;">
 <div class="container">
 <h2>Gallery</h2>
@@ -21,30 +21,4 @@ published: true
 </div>
 </div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImg");
-  const closeBtn = document.querySelector(".close");
-
-  document.querySelectorAll(".image-wrapper").forEach(wrapper => {
-    wrapper.addEventListener("click", function () {
-      modal.style.display = "block";
-      modalImg.src = this.dataset.url;
-    });
-  });
-
-  closeBtn.onclick = function () {
-    modal.style.display = "none";
-    modalImg.src = "";
-  };
-
-  window.onclick = function (e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
-      modalImg.src = "";
-    }
-  };
-});
-</script>
+<script>const modal=document.getElementById("imageModal");const modalImg=document.getElementById("modalImg");const closeBtn=document.querySelector(".close");document.querySelectorAll(".image-wrapper").forEach(wrapper=>{wrapper.addEventListener("click",function(){modal.style.display="block";modalImg.src=this.dataset.url;document.body.style.overflow="hidden";closeBtn.focus();});});closeBtn.onclick=function(){modal.style.display="none";modalImg.src="";document.body.style.overflow="";};window.onclick=function(e){if(e.target===modal){modal.style.display="none";modalImg.src="";document.body.style.overflow="";}};</script>
