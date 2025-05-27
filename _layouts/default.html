@@ -44,7 +44,7 @@
 <p>Please do not use any piece of content without permission.</p>
 </div>
 </footer>
-{% if page.url == "/" %}<script>const modal=document.getElementById("imageModal");const modalImg=document.getElementById("modalImg");const closeBtn=document.querySelector(".close");document.querySelectorAll(".image-wrapper").forEach(wrapper=>{wrapper.addEventListener("click",function(){modal.style.display="block";modalImg.src=this.dataset.url;document.body.style.overflow="hidden";closeBtn.focus();});});closeBtn.onclick=function(){modal.style.display="none";modalImg.src="";document.body.style.overflow="";};</script>{% endif %}
+{% if page.url == "/gallery/" %}<script>const modal=document.getElementById("imageModal");const modalImg=document.getElementById("modalImg");const closeBtn=document.querySelector(".close");document.querySelectorAll(".image-wrapper").forEach(wrapper=>{wrapper.addEventListener("click",function(){modal.style.display="block";modalImg.src=this.dataset.url;document.body.style.overflow="hidden";closeBtn.focus();});});closeBtn.onclick=function(){modal.style.display="none";modalImg.src="";document.body.style.overflow="";};</script>{% endif %}
 <script>document.addEventListener("copy",e=>{const s=window.getSelection();if(!s.rangeCount)return;const r=s.getRangeAt(0),i=r.commonAncestorContainer.querySelector?.("img");if(i){e.preventDefault();e.clipboardData.setData("text/plain",i.alt||"Image cannot be copied");}});</script>
 </body>
 </html>
