@@ -8,7 +8,8 @@ published: true
 <div class="container">
 <h1>Ome Art Heal</h1>
 <p>Capturing the world through my eyes.</p>
-<a href="#gallery">GALLERY</a>
+<a href="/gallery">GALLERY</a>
+<a href="#preview">PREVIEW</a>
 </div>
 </header>
 <section class="about">
@@ -17,9 +18,9 @@ published: true
 <p>A self-taught photographer with a heart for golden light, soft tones, and the beauty of everyday moments. Always chasing magic through my lens.</p>
 </div>
 </section>
-<section id="gallery" class="gallery">
+<section id="preview" class="gallery">
 <div class="container">
-<h2>Gallery</h2>
+<h2>Preview</h2>
 <div class="grid">
 {% assign sorted = site.data.gallery | sort: "id" | reverse | slice: 0, 4 %}
 {% assign recent = sorted | sort: "id" %}
