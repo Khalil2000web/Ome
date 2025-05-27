@@ -21,7 +21,7 @@ published: true
 <div class="container">
 <h2>Gallery</h2>
 <div class="grid">
-{% assign recent = site.data.gallery | sort: "date" | reverse | slice: 0, 6 %}
+{% assign recent = site.data.gallery | sort: "date" | reverse | slice: 0, 4 %}
 {% for item in recent %}
 <img src="{{ item.url }}" alt="{{ item.title }}" loading="lazy" decoding="async" class="image">
 {% endfor %}
