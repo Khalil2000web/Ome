@@ -21,4 +21,3 @@ published: true
 </div>
 </div>
 </section>
-<script>const modal=document.getElementById("imageModal");const modalImg=document.getElementById("modalImg");const closeBtn=document.querySelector(".close");document.querySelectorAll(".image-wrapper").forEach(wrapper=>{wrapper.addEventListener("click",function(){modal.style.display="block";modalImg.src=this.dataset.url;document.body.style.overflow="hidden";closeBtn.focus();});});closeBtn.onclick=function(){modal.style.display="none";modalImg.src="";document.body.style.overflow="";};window.onclick=function(e){if(e.target===modal){modal.style.display="none";modalImg.src="";document.body.style.overflow="";}};</script>
