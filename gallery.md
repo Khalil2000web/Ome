@@ -12,7 +12,7 @@ published: true
 <div class="container">
 <h2>Gallery</h2>
 <div class="grid">
-{% assign sorted = site.data.gallery | sort: "date" | reverse %}
+{% assign sorted = site.data.gallery | sort: "id" %}
 {% for item in sorted %}
 <img src="{{ item.url }}" alt="{{ item.title }}" loading="lazy" decoding="async" class="image">
 {% endfor %}
