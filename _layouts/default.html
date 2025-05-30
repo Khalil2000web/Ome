@@ -25,7 +25,8 @@
 <style>:root {--bg: #f2cfd6;--accent: #f2cfd6;--text: #333;--text-white:#fff7f9;--title: #af4c78;--font-body: 'Poppins', sans-serif;--font-title: 'Playfair Display', serif;}</style>
 <style>* {margin:0;padding:0;box-sizing: border-box;}body {margin: 0;padding:0;font-family: var(--font-body);background-color: var(--bg);color: var(--text);-webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-size-adjust: 100%;}svg,iframe,audio,video,img,canvas {display: block;} </style>
 <style>.navbar {position: fixed;top:0;left:50%;transform: translateX(-50%);width:100%;padding:10px 20px;display: flex;align-items: center;justify-content: space-between;z-index: 10;background-color: #f1b6c033;}.navbar a {color: var(--text);text-decoration: none;cursor: pointer;}.navbar a:hover {text-decoration:underline;text-underline-offset:4px;} </style>
-<style>.footer{text-align:center;padding:2rem;background:#fce8ed;color:#555;gap:10px;min-height:180px;display: flex;flex-direction: column;align-items: center;justify-content: center;}.footer a{color:var(--text);font-weight:500;cursor: pointer;}.social-media{display:flex;width:90%;align-items:center;justify-content:center;gap:20px;padding:10px 0;margin:0 auto;}.social-media svg{color:var(--text);width:17px;}.footer-info {display: flex;flex-direction: column;align-items: center;justify-content: center;width:90%;margin:0 auto;gap:5px;}.footer-info p {font-size: 0.86rem;color: var(--text);} main {background-color: #fff7f9;}.footer > * {word-break: break-all;} </style>
+<style>.footer{text-align:center;padding:2rem;background:#fce8ed;color:#555;gap:10px;min-height:180px;display: flex;flex-direction: column;align-items: center;justify-content: center;}.footer a{color:var(--text);font-weight:500;cursor: pointer;}.social-media{display:flex;width:90%;align-items:center;justify-content:center;gap:20px;padding:10px 0;margin:0 auto;}.social-media svg{color:var(--text);width:17px;}.footer-info {display: flex;flex-direction: column;align-items: center;justify-content: center;width:90%;margin:0 auto;gap:5px;}.footer-info p {font-size: 0.86rem;color: var(--text);} main {background-color: #fff7f9;}.footer > * {word-break: break-all;}#footer-buttons {display: flex;width:90%;align-items: center;justify-content: center;gap:1rem;margin-top:10px;}#footer-buttons button {background: transparent;cursor: pointer;border: none;color: var(--text);font-family: var(--font-body);font-size: 14px;}#footer-buttons button:hover {text-decoration: underline;text-underline-offset: 4px;}#footer-buttons span {color: var(--text);font-size: 12px;padding:0 ;} </style>
+<style>.hidden{display:none!important;}#legal-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999;}.legal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:1;}.legal-window{position:relative;background:#fff7f9;width:90%;max-width:600px;min-height:80vh;max-height:80vh;display:flex;flex-direction:column;border-radius:8px;overflow:hidden;z-index:2;}.legal-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:20px 0;width:95%;margin:0 auto;font-weight:normal;color:var(--text);}.legal-switcher{display:flex;justify-content:flex-start;gap:0.5rem;align-items:center;flex-wrap:wrap;padding:0;width:95%;margin:0 auto;background:#fff7f9;font-size:0.9rem;padding-bottom:8px;border-bottom:1px solid #ddd;}.switch-tab{cursor:pointer;position:relative;padding-bottom:3px;}.switch-tab.active::after{content:"";position:absolute;bottom:-1.6px;left:0;width:100%;height:1.5px;background:black;}.legal-content{padding:1rem;overflow-y:auto;flex-grow:1;font-size:0.9rem;color:var(--text);font-family:var(--font-body);line-height:1.6;}.legal-content a{color:var(--text);}#legal-close{background-color:transparent;border:none;font-size:17px;font-family:var(--font-body);color:var(--text);cursor:pointer;}</style>
 
 {% if page.url == "/" %}
 <style>.navbar {display:none;}.container{max-width:1000px;width: 90%;margin:0;padding:40px 0;}header{text-align:center;background:var(--accent);padding:4rem 2rem;border-bottom:2px solid #f1b6c0;}header .container {margin:0 auto;} header h1{font-family:var(--font-title);font-size:3rem;text-align:center;color:var(--title);}header p{font-size:1.2rem;font-weight:300;}header a{color:var(--text);text-decoration:none;cursor:pointer;width:50%;margin:0 auto;word-wrap:break-word;display:block;align-self:center;text-align:center;padding:10px 0;border:1px solid var(--text);transition:color 0.4s ease,background-color 0.4s ease;margin-top:20px;}header a:hover{background-color:var(--text);color:#fff7f9;}.about {width:90%;margin: 0 auto;} h2{font-family:var(--font-title);font-size:2rem;margin-bottom:1rem;color:var(--title);}.about p {color: var(--text);font-family: var(--font-body);text-align: left;padding:0;margin:0;width:100%;font-size: 16px;} </style>
@@ -39,15 +40,124 @@
 </head>
 <body>
 <nav class="navbar"><a href="/">Home Page</a><a style="pointer-events:none;font-family:var(--font-title);">Ome</a></nav>
+<div id="legal-modal" class="legal-modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-content" tabindex="-1"><div class="legal-backdrop"></div><div class="legal-window"><div class="legal-header"><h2 id="legal-title">Privacy Policy</h2><button id="legal-close" aria-label="Close" title="Close" type="button">CLOSE</button></div><div class="legal-switcher"><span class="switch-tab active" data-tab="privacy">PRIVACY POLICY</span><span>/</span><span class="switch-tab" data-tab="terms">TERMS & CONDITIONS</span></div><div class="legal-content" id="legal-content"></div></div></div>
 
 <main>
 {{ content }}
 </main>
 
-<footer class="footer"><div class="social-media"><a href="https://www.instagram.com/ome_art_heal" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path></svg></a></div><div class="footer-info"><p>© 2025 Ome Art Heal. Made with love by <a href="https://khaliil.com">Khaliil</a>.</p><p>Please do not use any piece of content without permission.</p></div></footer>
+<footer class="footer"><div class="social-media"><a href="https://www.instagram.com/ome_art_heal" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path></svg></a></div><div class="footer-info"><p>© 2025 Ome Art Heal. Made with love by <a href="https://khaliil.com">Khaliil</a>.</p><p>Please do not use any piece of content without permission.</p></div>
+<div id="footer-buttons"><button class="legal-btn" data-type="privacy">Privacy Policy</button><span>/</span><button class="legal-btn" data-type="terms">Terms & Conditions</button></div>
+</footer>
 {% if page.url == "/gallery/" %}
 <script>const modal=document.getElementById("imageModal"),modalImg=document.getElementById("modalImg"),closeBtn=document.querySelector(".close"),prevBtn=document.querySelector(".prev"),nextBtn=document.querySelector(".next"),wrappers=Array.from(document.querySelectorAll(".image-wrapper"));let currentIndex=-1;function updateModal(){modalImg.src=wrappers[currentIndex].dataset.url;prevBtn.style.pointerEvents=currentIndex===0?"none":"auto";nextBtn.style.pointerEvents=currentIndex===wrappers.length-1?"none":"auto";}wrappers.forEach((wrapper,i)=>{wrapper.addEventListener("click",()=>{currentIndex=i;modal.style.display="block";document.body.style.overflow="hidden";updateModal();prevBtn.focus();});});closeBtn.onclick=()=>{modal.style.display="none";modalImg.src="";document.body.style.overflow="";};prevBtn.onclick=()=>{if(currentIndex>0){currentIndex--;updateModal();}};nextBtn.onclick=()=>{if(currentIndex<wrappers.length-1){currentIndex++;updateModal();}};</script>
 {% endif %}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const legalModal = document.getElementById("legal-modal");
+    const legalTitle = document.getElementById("legal-title");
+    const legalContent = document.getElementById("legal-content");
+    const closeBtn = document.getElementById("legal-close");
+    const switchTabs = document.querySelectorAll(".switch-tab");
+    const backdrop = document.querySelector(".legal-backdrop");
+
+    const contents = {
+      privacy: `
+    <p><strong>Last Updated:</strong> May 30, 2025.</p>
+  <p>This Privacy Policy describes how we handle your data when you visit this photography website.</p>
+  <p><strong>1. No Data Collection by Us</strong><br>
+  We do not collect, store, or request any personal data from visitors to this website.<br><br>
+  - No forms<br>
+  - No logins<br>
+  - No cookies from us<br>
+  - No newsletters<br>
+  - No third-party advertising</p>
+  <p><strong>2. Cloudflare Analytics</strong><br>
+  However, for security and performance optimization, this website uses a script automatically provided by Cloudflare called Cloudflare Insights.<br><br>
+  This script may collect anonymous technical data such as: IP address (non-identifiable), browser type, general location (country-level), and page load performance.<br><br>
+  This data is collected solely for performance and security purposes and is stored and processed by Cloudflare under their own privacy and data protection standards. We do not access or store this data ourselves.</p>
+  <p><strong>3. No Tracking or Marketing</strong><br>
+  We do not use:<br>
+  - Cookies for advertising or personalization<br>
+  - Google Analytics<br>
+  - Tracking pixels</p>
+  <p><strong>4. Third-Party Links</strong><br>
+  We may link to third-party platforms (e.g., Instagram), but we are not responsible for their privacy practices. Please consult their policies separately.</p>
+  <p><strong>5. Children’s Privacy</strong><br>
+  This site is not intended for users under the age of 13. We do not knowingly collect or store data from minors.</p>
+  <p><strong>6. Policy Changes</strong><br>
+  We may update this Privacy Policy if necessary (e.g., if we add forms or subscriptions in the future). The date above will reflect the last revision.</p>
+  <p><strong>7. Contact</strong><br>
+  For any privacy-related inquiries, reach out to:<br>
+  ✉️ </p>
+</div>
+
+
+
+      `,
+      terms: `
+    <p><strong>Last Updated:</strong> May 30, 2025.</p>
+    <p>Welcome to this website, which showcases and archives the creative photography works of Ome Art Heal (“Photographer”), under the exclusive management and technical administration of Khalil (“Site Manager”) through his company/site <a href="https://khaliil.com/" target="_blank">Khaliil.com</a>. By accessing or using this website, you agree to be bound by the following Terms & Conditions.</p>
+      <p>Welcome to this website, which showcases and archives the creative photography works of Ome Art Heal (“Photographer”), under the exclusive management and technical administration of Khalil (“Site Manager”) through his company/site <a href="https://khaliil.com/" target="_blank">Khaliil.com</a>. By accessing or using this website, you agree to be bound by the following Terms & Conditions.</p>
+  <p><strong>2. Management Rights</strong><br>
+  The structure, platform, digital management, and hosting of this website are operated under the full rights of Khalil. Any third party wishing to collaborate, use, reference, or embed site content must obtain formal permission from Khalil in writing.</p>
+  <p><strong>3. Usage Restrictions</strong><br>
+  You may only use this website for personal, non-commercial purposes. You may not: access the site through automated means (bots, crawlers, etc.); attempt to reverse-engineer any functionality; scrape or export any content; or remove watermarks or ownership labels from images.</p>
+  <p><strong>4. Liability Disclaimer</strong><br>
+  This website is provided “as is” without warranties of any kind. While all efforts are made to ensure accuracy and uptime, the Site Manager and Photographer are not liable for: any damages from site unavailability, lost data, misattributed content, or external use of images without authorization.</p>
+  <p><strong>5. Modifications to Terms</strong><br>
+  We reserve the right to update or revise these Terms at any time without prior notice. Continued use of the site after such changes constitutes acceptance of the updated Terms.</p>
+  <p><strong>6. Contact</strong><br>
+  To request permission to use images or to report misuse, please contact:<br>
+  ✉️ </p>
+      
+      
+`
+    };
+
+    function showModal(type = "privacy") {
+      legalModal.classList.remove("hidden");
+      updateModal(type);
+    }
+
+    function hideModal() {
+      legalModal.classList.add("hidden");
+    }
+
+    function updateModal(type) {
+      legalTitle.textContent = type === "privacy" ? "Privacy Policy" : "Terms & Conditions";
+      legalContent.innerHTML = contents[type];
+
+      switchTabs.forEach(tab => {
+        tab.classList.toggle("active", tab.dataset.tab === type);
+      });
+    }
+
+    document.querySelectorAll(".legal-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const type = btn.dataset.type;
+        showModal(type);
+      });
+    });
+
+    switchTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const selected = tab.dataset.tab;
+        updateModal(selected);
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+  console.log("Close clicked");
+  hideModal();
+});
+
+backdrop.addEventListener("click", () => {
+  console.log("Backdrop clicked");
+  hideModal();
+});
+  });
+</script>
 <script>document.addEventListener("copy",e=>{const s=window.getSelection();if(!s.rangeCount)return;const r=s.getRangeAt(0),i=r.commonAncestorContainer.querySelector?.("img");if(i){e.preventDefault();e.clipboardData.setData("text/plain",i.alt||"Image cannot be copied");}});</script>
 </body>
 </html>
