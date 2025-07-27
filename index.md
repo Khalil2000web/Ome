@@ -2,7 +2,7 @@
 layout: default
 title: Ome Art Heal
 author: "Ome"
-published: false
+published: true
 ---
 <header>
 <div class="container">
